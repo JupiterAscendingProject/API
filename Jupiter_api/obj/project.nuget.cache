@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "V81AOxliQ8fpUom/aTwXPapuP/bAkiuWiMTr2J4JGhWd9T0CP/HKqAcuWsV3ECqpeqsAs1h0svDa7fxMnI8gqA==",
+  "dgSpecHash": "RlaQaFbVggeGv5AO3ONIWkgudxV6JXvNjF79hpZxqjwfHg4E+7ePSImXAfpxjHTGEWFDsHU3Mhf9ByiB+/I1JA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\shubham_dawkhar\\Desktop\\Jupiter_api\\Jupiter_api\\Jupiter_api.csproj",
+  "projectFilePath": "C:\\Users\\shubham_dawkhar\\Desktop\\Github\\API\\Jupiter_api\\Jupiter_api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\shubham_dawkhar\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\shubham_dawkhar\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.10\\microsoft.aspnetcore.authentication.jwtbearer.6.0.10.nupkg.sha512",

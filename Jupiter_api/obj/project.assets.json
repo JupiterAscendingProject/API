@@ -2391,11 +2391,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\shubham_dawkhar\\Desktop\\Jupiter_api\\Jupiter_api\\Jupiter_api.csproj",
+      "projectUniqueName": "C:\\Users\\shubham_dawkhar\\Desktop\\Github\\API\\Jupiter_api\\Jupiter_api.csproj",
       "projectName": "Jupiter_api",
-      "projectPath": "C:\\Users\\shubham_dawkhar\\Desktop\\Jupiter_api\\Jupiter_api\\Jupiter_api.csproj",
+      "projectPath": "C:\\Users\\shubham_dawkhar\\Desktop\\Github\\API\\Jupiter_api\\Jupiter_api.csproj",
       "packagesPath": "C:\\Users\\shubham_dawkhar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\shubham_dawkhar\\Desktop\\Jupiter_api\\Jupiter_api\\obj\\",
+      "outputPath": "C:\\Users\\shubham_dawkhar\\Desktop\\Github\\API\\Jupiter_api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

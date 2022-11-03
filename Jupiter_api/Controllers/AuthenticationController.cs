@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Jupiter_api.Controllers
 {
+    // This controller is used for auth
     [Route("api/[controller]")]
     [ApiController]
     public class AuthenticationController : ControllerBase
