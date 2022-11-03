@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jupiter_api", "Jupiter_api\Jupiter_api.csproj", "{113FC9F3-E81F-4DCC-A99E-4530DF0A6BEB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{113FC9F3-E81F-4DCC-A99E-4530DF0A6BEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{113FC9F3-E81F-4DCC-A99E-4530DF0A6BEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{113FC9F3-E81F-4DCC-A99E-4530DF0A6BEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{113FC9F3-E81F-4DCC-A99E-4530DF0A6BEB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C861C67B-38C6-47A4-AA4E-9435AD53709F}
+	EndGlobalSection
+EndGlobal
