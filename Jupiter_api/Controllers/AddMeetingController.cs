@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Jupiter.Controllers
 {
+    // Meeting Controller
     [Route("api/[controller]")]
     [ApiController]
    
