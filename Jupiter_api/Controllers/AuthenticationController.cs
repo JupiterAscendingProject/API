@@ -1,7 +1,10 @@
 ﻿using Jupiter_api.Models.Authorization;
-using Jupiter_api.Repository;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
+using Jupiter_api.Repository;
 
 namespace Jupiter_api.Controllers
 {
@@ -10,28 +13,33 @@ namespace Jupiter_api.Controllers
     [ApiController]
     public class AuthenticationController : ControllerBase
     {
-        private readonly IJWTManagerRepository jwtManagerRepository;
-        
 
-        public AuthenticationController(IJWTManagerRepository jwtAuth)
+        //IConfiguration _configuration;
+        AuthenticationBase _auth = new AuthenticationBase();
+        JwtTokenManager _jwtTokenManager;
+
+        public AuthenticationController(IConfiguration configuration)
         {
-            this.jwtManagerRepository = jwtAuth;
-           
-        }   
-
-
-        
-        [HttpPost("authentication")]
-        public IActionResult Authenticate([FromBody] Users userCredential)
-        {
-            var token = jwtManagerRepository.Authenticate(userCredential);
-
-            if (token == null)
-            {
-                return Unauthorized();
-            }
-
-            return Ok(token);
+            //this._configuration = configuration;
+            _jwtTokenManager = new JwtTokenManager(configuration);
         }
+
+
+        //Login Api
+        [HttpPost("Login")]
+        public IActionResult Login([FromBody] LoginUser user)
+        {
+
+            var CurrentUser = _auth.Authenticate(user);
+
+            if (CurrentUser != null)
+            {
+                var token = _jwtTokenManager.GenerateToken(CurrentUser);
+                return Ok(token);
+
+            }
+            return BadRequest("User not found");
+        }
+
     }
 }

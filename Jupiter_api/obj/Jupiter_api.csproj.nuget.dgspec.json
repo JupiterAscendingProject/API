@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\aditya_mishra\\Desktop\\Test\\API\\Jupiter_api\\Jupiter_api.csproj": {}
+    "C:\\Users\\purushottam_panchal\\Source\\Repos\\JupiterAscendingProject\\API\\Jupiter_api\\Jupiter_api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\aditya_mishra\\Desktop\\Test\\API\\Jupiter_api\\Jupiter_api.csproj": {
+    "C:\\Users\\purushottam_panchal\\Source\\Repos\\JupiterAscendingProject\\API\\Jupiter_api\\Jupiter_api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\aditya_mishra\\Desktop\\Test\\API\\Jupiter_api\\Jupiter_api.csproj",
+        "projectUniqueName": "C:\\Users\\purushottam_panchal\\Source\\Repos\\JupiterAscendingProject\\API\\Jupiter_api\\Jupiter_api.csproj",
         "projectName": "Jupiter_api",
-        "projectPath": "C:\\Users\\aditya_mishra\\Desktop\\Test\\API\\Jupiter_api\\Jupiter_api.csproj",
-        "packagesPath": "C:\\Users\\aditya_mishra\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\aditya_mishra\\Desktop\\Test\\API\\Jupiter_api\\obj\\",
+        "projectPath": "C:\\Users\\purushottam_panchal\\Source\\Repos\\JupiterAscendingProject\\API\\Jupiter_api\\Jupiter_api.csproj",
+        "packagesPath": "C:\\Users\\purushottam_panchal\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\purushottam_panchal\\Source\\Repos\\JupiterAscendingProject\\API\\Jupiter_api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\aditya_mishra\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\purushottam_panchal\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -75,8 +75,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -88,7 +87,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,5 +1,6 @@
 ﻿using Jupiter_api.Models;
 using Jupiter_api.Models.Dto;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -22,6 +23,8 @@ namespace Jupiter_api.Controllers
         // GET: All the trainers
         [HttpGet]
         [Route("GetAllTrainers")]
+        [Authorize(Roles ="Admin")]
+        
         public async Task<ActionResult<IEnumerable<TrainerDetail>>> GetAllTrainerDetails()
         {
             return await _context.TrainerDetails.ToListAsync();
@@ -48,6 +51,8 @@ namespace Jupiter_api.Controllers
         // POST: Add trainer
         [HttpPost]
         [Route("AddTrainer")]
+        [Authorize(Roles = "Admin")]
+
         public void Post([FromBody] TrainerDetail value)
         {
             _context.TrainerDetails.Add(value);

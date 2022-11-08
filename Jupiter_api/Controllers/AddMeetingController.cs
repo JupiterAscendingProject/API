@@ -1,19 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Jupiter_api.Models;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
+using Jupiter_api.Repository;
 
 namespace Jupiter.Controllers
 {
     // Meeting Controller
-    [Route("api/[controller]")]
+    [Route("api/[action]")]
     [ApiController]
-   
+
     public class AddMeetingController : ControllerBase
     {
         private readonly CoreDbContext _context;
@@ -25,24 +22,42 @@ namespace Jupiter.Controllers
 
         // GET: api/AddMeeting
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<MainTable>>> GetMainTables()
+        public async Task<ActionResult<IEnumerable<MainTable>>> GetAllMeetings()
         {
             return await _context.MainTables.ToListAsync();
         }
 
         // GET: api/AddMeeting/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<MainTable>> GetMainTable(int id)
+        //[HttpGet("{id}")]
+
+
+        //send bearer token along with the req 
+        [HttpGet]
+        [Authorize]
+        public async Task<ActionResult<MainTable>> GetMeeting()
         {
-            var mainTable = await _context.MainTables.FindAsync(id);
+
+            var id = AuthenticationBase.GetCurrentUserId(HttpContext.User.Identity);
+            Console.WriteLine("Id got - " + id);
+
+            if (id == null)
+            {
+                return Unauthorized("Id not found, Log in first");
+            }
+
+
+            var mainTable = await _context.MainTables.FindAsync(Convert.ToInt32(id));
+            //var mainTable = await _context.MainTables.FindAsync(1);
 
             if (mainTable == null)
             {
-                return NotFound();
+                return NotFound($"Tables not found for id {id}");
             }
 
             return mainTable;
         }
+
+
 
         // PUT: api/AddMeeting/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754

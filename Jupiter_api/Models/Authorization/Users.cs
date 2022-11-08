@@ -1,8 +1,24 @@
-﻿namespace Jupiter_api.Models.Authorization
+﻿using Microsoft.AspNetCore.Identity;
+
+namespace Jupiter_api.Models.Authorization
 {
+
+    public class DemoUsers
+    {
+        public static PasswordHasher<string> pw = new PasswordHasher<string>();
+        public static List<Users> UsersRecords = new List<Users>()
+        {
+            new Users(){Id = 1, UserName = "trainer1", HashedPassword = pw.HashPassword("trainer1","123") , Role = "Trainer" },
+            new Users(){Id = 1, UserName = "admin1", HashedPassword = pw.HashPassword("admin1","123") , Role = "Admin" }
+        };
+    }
     public class Users
     {
-        public string Name { get; set; }
-        public string Password { get; set; }
+        public int Id { get; set; }
+        public string UserName { get; set; }
+        public string HashedPassword { get; set; }
+        public string Role { get; set; }
+
+        //TODO: add other attributes
     }
 }
