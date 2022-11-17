@@ -85,6 +85,14 @@ namespace Jupiter_api.Controllers
         {
             return _context.TrainerDetails.Any(e => e.EmpId == id);
         }
+        
+        //Get Modules of a Trainer
+        [HttpGet]
+        [Route("GetTrainerModules")]
+        public async Task<IEnumerable<object>> GetTrainerModule(int Trainerid)
+        {
+            return await _context.TrainerModules.Where(b => b.EmpId == Trainerid).ToListAsync();
+        }
 
     }
 }
