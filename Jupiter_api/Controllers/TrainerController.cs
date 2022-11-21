@@ -1,4 +1,4 @@
-﻿using Jupiter_api.Models;
+using Jupiter_api.Models;
 using Jupiter_api.Models.Dto;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -92,6 +92,28 @@ namespace Jupiter_api.Controllers
         public async Task<IEnumerable<object>> GetTrainerModule(int Trainerid)
         {
             return await _context.TrainerModules.Where(b => b.EmpId == Trainerid).ToListAsync();
+        }
+        
+        // Get skills of a trainer
+        [HttpGet]
+        [Route("SkillsOfTrainer")]
+        public async Task<TrainerSkillDto> GetSKillsOfTrainer(int trainerId)
+        {
+            var TrainerDetails = await _context.TrainerDetails.FindAsync(trainerId);
+            List<Skill> skillList = new List<Skill>();
+            var ans = _context.TrainerSkills.Where(t => t.EmpId == trainerId).ToList();
+            foreach (var skill in ans)
+            {
+                var skillDetails = await _context.Skills.FindAsync(skill.SkillId);
+                skillList.Add(skillDetails);
+            }
+            var trainerskill = new TrainerSkillDto()
+            {
+                TrainerName = TrainerDetails.TrainerName,
+                EmpId = trainerId,
+                Skills = skillList
+            };
+            return trainerskill;
         }
 
     }
