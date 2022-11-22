@@ -16,7 +16,7 @@ namespace Jupiter_api.Controllers
             _context = context;
         }
 
-
+/*
         [HttpGet("{id}")]
         public async Task<ActionResult<TrainerDetailsDto>> GetTrainerDetail(int id)
         {
@@ -28,6 +28,6 @@ namespace Jupiter_api.Controllers
                 TrainerSkills = TrainerDetail.TrainerSkills
             };
             return TrainerdtoRes;
-        }
+        }*/
     }
 }
