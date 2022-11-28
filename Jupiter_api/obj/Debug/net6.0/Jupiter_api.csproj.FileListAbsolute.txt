@@ -126,3 +126,9 @@ C:\Users\shubham_dawkhar\Desktop\Github\API\Jupiter_api\obj\Debug\net6.0\refint\
 C:\Users\shubham_dawkhar\Desktop\Github\API\Jupiter_api\obj\Debug\net6.0\Jupiter_api.pdb
 C:\Users\shubham_dawkhar\Desktop\Github\API\Jupiter_api\obj\Debug\net6.0\Jupiter_api.genruntimeconfig.cache
 C:\Users\shubham_dawkhar\Desktop\Github\API\Jupiter_api\obj\Debug\net6.0\ref\Jupiter_api.dll
+C:\Users\shubham_dawkhar\Desktop\Github\API\Jupiter_api\bin\Debug\net6.0\System.Web.Cors.dll
+C:\Users\shubham_dawkhar\Desktop\Github\API\Jupiter_api\bin\Debug\net6.0\System.Net.Http.Formatting.dll
+C:\Users\shubham_dawkhar\Desktop\Github\API\Jupiter_api\bin\Debug\net6.0\System.Web.Http.dll
+C:\Users\shubham_dawkhar\Desktop\Github\API\Jupiter_api\bin\Debug\net6.0\System.Web.Http.Cors.dll
+C:\Users\shubham_dawkhar\Desktop\Github\API\Jupiter_api\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\shubham_dawkhar\Desktop\Github\API\Jupiter_api\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll

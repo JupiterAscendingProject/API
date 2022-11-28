@@ -9,30 +9,26 @@ namespace Jupiter_api.Models
     [Table("Main_Table")]
     public partial class MainTable
     {
-        [Column("session_date", TypeName = "date")]
-        public DateTime SessionDate { get; set; }
+        [Key]
+        [Column("Session_id")]
+        public int SessionId { get; set; }
+        [Column("Session_date", TypeName = "datetime")]
+        public DateTime? SessionDate { get; set; }
         public int? Module { get; set; }
         [Column("Trainer_id")]
         public int? TrainerId { get; set; }
-        [Column("session_start_time")]
-        [StringLength(50)]
-        [Unicode(false)]
-        public string? SessionStartTime { get; set; }
         [Column("Training_mode")]
-        [StringLength(15)]
+        [StringLength(20)]
         [Unicode(false)]
         public string? TrainingMode { get; set; }
-        [Column("session_location")]
+        [Column("Session_location")]
         [StringLength(50)]
         [Unicode(false)]
         public string? SessionLocation { get; set; }
-        [Key]
-        [Column("session_id")]
-        public int SessionId { get; set; }
-        [Column("session_end_time")]
-        [StringLength(50)]
-        [Unicode(false)]
-        public string? SessionEndTime { get; set; }
         public int? Track { get; set; }
+        [Column("Session_start_time", TypeName = "datetime")]
+        public DateTime? SessionStartTime { get; set; }
+        [Column("Session_end_time", TypeName = "datetime")]
+        public DateTime? SessionEndTime { get; set; }
     }
 }

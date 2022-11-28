@@ -16,10 +16,6 @@ namespace Jupiter_api.Models
         [StringLength(50)]
         [Unicode(false)]
         public string TrainerName { get; set; } = null!;
-        [Column("Trainer_Skills")]
-        [StringLength(200)]
-        [Unicode(false)]
-        public string TrainerSkills { get; set; } = null!;
         [StringLength(50)]
         [Unicode(false)]
         public string? Username { get; set; }
