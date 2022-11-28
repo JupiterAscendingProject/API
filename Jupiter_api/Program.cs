@@ -30,6 +30,16 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddSingleton<IJWTManagerRepository, JWTManagerRepository>();
 builder.Services.AddDbContext<CoreDbContext>(op => op.UseSqlServer(builder.Configuration.GetConnectionString("Database")));
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(
+        builder =>
+        {
+            builder.WithOrigins("https://localhost:3000", "http://localhost:4200")
+                                .AllowAnyHeader()
+                                .AllowAnyMethod();
+        });
+});
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -44,7 +54,13 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.UseCors(builder =>
+{
+    builder
+    .AllowAnyOrigin()
+    .AllowAnyMethod()
+    .AllowAnyHeader();
+});
 app.UseHttpsRedirection();
 
 app.UseHttpsRedirection();
