@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jupiter_api", "Jupiter_api\Jupiter_api.csproj", "{113FC9F3-E81F-4DCC-A99E-4530DF0A6BEB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jupiter_api", "Jupiter_api\Jupiter_api.csproj", "{113FC9F3-E81F-4DCC-A99E-4530DF0A6BEB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jupiter_Test_unitTest", "Jupiter_Test_unitTest\Jupiter_Test_unitTest.csproj", "{85904755-1B03-477C-8AC7-E7421BAF369A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{113FC9F3-E81F-4DCC-A99E-4530DF0A6BEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{113FC9F3-E81F-4DCC-A99E-4530DF0A6BEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{113FC9F3-E81F-4DCC-A99E-4530DF0A6BEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85904755-1B03-477C-8AC7-E7421BAF369A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85904755-1B03-477C-8AC7-E7421BAF369A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85904755-1B03-477C-8AC7-E7421BAF369A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85904755-1B03-477C-8AC7-E7421BAF369A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

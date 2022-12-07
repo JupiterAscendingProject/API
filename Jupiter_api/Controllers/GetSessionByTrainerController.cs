@@ -44,7 +44,7 @@ namespace Jupiter_api.Controllers
         // GET: api/AddMeeting/Trainerid
         [HttpGet]
         [Route("~/api/TrainerId/MainTable")]
-        public async Task<IEnumerable<object>> GettMainTable(int Trainerid)
+        public async Task<IEnumerable<object>> GettMainTableByTrainerid(int Trainerid)
         {
             return await _Context.MainTables.Where(b => b.TrainerId == Trainerid).ToListAsync();
         }
@@ -53,7 +53,7 @@ namespace Jupiter_api.Controllers
         // GET: api/AddMeeting/Skillid
         [HttpGet]
         [Route("~/api/SkillId/MainTable")]
-        public async Task<IEnumerable<object>> GetMainnTable(int Skillid)
+        public async Task<IEnumerable<object>> GetMainnTableByModule(int Skillid)
         {
             return await _Context.MainTables.Where(b => b.Module == Skillid).ToListAsync();
         }
@@ -62,7 +62,7 @@ namespace Jupiter_api.Controllers
         // GET: api/AddMeeting/Trackid
         [HttpGet]
         [Route("~/api/TrackId/MainTable")]
-        public async Task<IEnumerable<object>> GetMainTTable(int Trackid)
+        public async Task<IEnumerable<object>> GetMainTTableByTrackid(int Trackid)
         {
             return await _Context.MainTables.Where(b => b.Track == Trackid).ToListAsync();
         }
@@ -94,7 +94,7 @@ namespace Jupiter_api.Controllers
                 }
             }
 
-            return NoContent();
+            return Ok(mainTable);
         }
 
 

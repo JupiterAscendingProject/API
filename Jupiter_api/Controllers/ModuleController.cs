@@ -67,7 +67,7 @@ namespace Jupiter_api.Controllers
                 return Conflict();
             }
 
-            return Ok();
+            return Ok(newModule);
         }
 
 
