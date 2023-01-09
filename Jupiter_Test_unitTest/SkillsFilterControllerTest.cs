@@ -1,6 +1,7 @@
 ﻿using Jupiter.Controllers;
 using Jupiter_api.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,11 +15,13 @@ namespace Jupiter_Test_unitTest
     {
         private readonly CoreDbContext context;
         private readonly SkillsFilterController controller;
+        private readonly MemoryCache cache;
         public SkillsFilterControllerTest()
         {
             DbContextOptions<CoreDbContext> options = new DbContextOptions<CoreDbContext>();
             context = new CoreDbContext(options);
-            controller = new SkillsFilterController(context);
+            cache = new MemoryCache(new MemoryCacheOptions());
+            controller = new SkillsFilterController(context, cache);
         }
         [Fact]
         public async Task GetAllModules_WhenCalled_ReturnsOkResult()

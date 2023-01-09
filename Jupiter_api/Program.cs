@@ -2,6 +2,7 @@ using Jupiter_api.Models;
 using Jupiter_api.Repository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
@@ -29,6 +30,7 @@ var builder = WebApplication.CreateBuilder(args);
         });
 
 builder.Services.AddSingleton<IJWTManagerRepository, JWTManagerRepository>();
+builder.Services.AddSingleton<IMemoryCache, MemoryCache>();
 builder.Services.AddDbContext<CoreDbContext>(op => op.UseSqlServer(builder.Configuration.GetConnectionString("Database")));
 builder.Services.AddCors(options =>
 {
@@ -42,10 +44,10 @@ builder.Services.AddCors(options =>
 });
 
 builder.Services.AddControllers();
+builder.Services.AddMemoryCache();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

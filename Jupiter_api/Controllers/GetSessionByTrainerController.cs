@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 using System.Linq;
+using Microsoft.Extensions.Caching.Memory;
+
 
 namespace Jupiter_api.Controllers
 {
@@ -12,16 +14,25 @@ namespace Jupiter_api.Controllers
     public class GetSessionByTrainerController : ControllerBase
     {
         private readonly CoreDbContext _Context;
+        private readonly IMemoryCache _cache;
 
-        public GetSessionByTrainerController(CoreDbContext context)
+        public GetSessionByTrainerController(CoreDbContext context, IMemoryCache cache)
         {
             _Context = context;
+            _cache = cache;
         }
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<MainTable>>> GetMainTables()
         {
-            return await _Context.MainTables.ToListAsync();
+
+            
+            var maintables = await _Context.MainTables.ToListAsync();
+            Cache cache = new Cache(_cache);
+
+            var result = cache.ConfigSetting(maintables);
+            return result;
+            
         }
 
 
@@ -46,7 +57,12 @@ namespace Jupiter_api.Controllers
         [Route("~/api/TrainerId/MainTable")]
         public async Task<IEnumerable<object>> GettMainTableByTrainerid(int Trainerid)
         {
-            return await _Context.MainTables.Where(b => b.TrainerId == Trainerid).ToListAsync();
+            var maintables = await _Context.MainTables.Where(b => b.TrainerId == Trainerid).ToListAsync();
+            Cache cache = new Cache(_cache);
+
+            var result = cache.ConfigSetting(maintables);
+            return result;
+            
         }
 
 
@@ -55,7 +71,12 @@ namespace Jupiter_api.Controllers
         [Route("~/api/SkillId/MainTable")]
         public async Task<IEnumerable<object>> GetMainnTableByModule(int Skillid)
         {
-            return await _Context.MainTables.Where(b => b.Module == Skillid).ToListAsync();
+            var maintables = await _Context.MainTables.Where(b => b.Module == Skillid).ToListAsync();
+            Cache cache = new Cache(_cache);
+
+            var result = cache.ConfigSetting(maintables);
+            return result;
+            
         }
 
 
@@ -64,7 +85,11 @@ namespace Jupiter_api.Controllers
         [Route("~/api/TrackId/MainTable")]
         public async Task<IEnumerable<object>> GetMainTTableByTrackid(int Trackid)
         {
-            return await _Context.MainTables.Where(b => b.Track == Trackid).ToListAsync();
+            var maintables = await _Context.MainTables.Where(b => b.Track == Trackid).ToListAsync();
+            Cache cache = new Cache(_cache);
+
+            var result = cache.ConfigSetting(maintables);
+            return result;
         }
 
         // PUT: api/AddMeeting/5

@@ -3,6 +3,7 @@ using Jupiter_api.Models;
 using Jupiter_api.Models.Dto;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,11 +17,13 @@ namespace Jupiter_Test_unitTest
     {
         private readonly CoreDbContext context;
         private readonly TrackController controller;
+        private readonly MemoryCache cache;
         public TrackControllerTest()
         {
             DbContextOptions<CoreDbContext> options = new DbContextOptions<CoreDbContext>();
             context = new CoreDbContext(options);
-            controller = new TrackController(context);
+            cache = new MemoryCache(new MemoryCacheOptions());
+            controller = new TrackController(context, cache);
         }
         [Fact]
         public async Task GetAllTracks_WhenCalled_ReturnsOkResult()

@@ -2,6 +2,7 @@
 using Jupiter_api.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,11 +16,13 @@ namespace Jupiter_Test_unitTest
     {
         private readonly GetSessionByTrainerController controller;
         private readonly CoreDbContext context;
+        private readonly MemoryCache cache;
         public GetSessionByTrainerControllerTest()
         {
             DbContextOptions<CoreDbContext> options = new DbContextOptions<CoreDbContext>();
             context = new CoreDbContext(options);
-            controller = new GetSessionByTrainerController(context);
+            cache = new MemoryCache(new MemoryCacheOptions());
+            controller = new GetSessionByTrainerController(context, cache);
         }
 
         [Fact]
