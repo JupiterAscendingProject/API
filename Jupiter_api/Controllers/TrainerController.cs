@@ -3,6 +3,7 @@ using Jupiter_api.Models.Dto;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace Jupiter_api.Controllers
 {
@@ -11,11 +12,13 @@ namespace Jupiter_api.Controllers
     public class TrainerController : ControllerBase
     {
 
+        private readonly IMemoryCache _cache;
         private readonly CoreDbContext _context;
 
-        public TrainerController(CoreDbContext context)
+        public TrainerController(CoreDbContext context, IMemoryCache cache)
         {
             _context = context;
+            _cache = cache;
         }
 
 
@@ -24,7 +27,11 @@ namespace Jupiter_api.Controllers
         [Route("GetAllTrainers")]
         public async Task<ActionResult<IEnumerable<TrainerDetail>>> GetAllTrainerDetails()
         {
-            return await _context.TrainerDetails.ToListAsync();
+            List<TrainerDetail> TrainersDetails = await _context.TrainerDetails.ToListAsync();
+            Cache cache = new Cache(_cache);
+
+            var result = cache.ConfigSetting(TrainersDetails);
+            return result;
         }
 
 
@@ -68,7 +75,11 @@ namespace Jupiter_api.Controllers
                 var trainerDetails = await _context.TrainerDetails.FindAsync(trainer.EmpId);
                 trarinerList.Add(trainerDetails);
             }
-            return trarinerList;
+
+            Cache cache = new Cache(_cache);
+
+            var result = cache.ConfigSetting(trarinerList);
+            return result;
         }
 
 
@@ -78,7 +89,12 @@ namespace Jupiter_api.Controllers
         [Route("GetTrainerNames")]
         public async Task<ActionResult<IEnumerable<string>>> GetTrainerNames()
         {
-            return await _context.TrainerDetails.Select(t => t.TrainerName).ToListAsync();
+            List<string> TrainerNames = await _context.TrainerDetails.Select(t => t.TrainerName).ToListAsync();
+            Cache cache = new Cache(_cache);
+
+            var result = cache.ConfigSetting(TrainerNames);
+            return result;
+            
         }
 
         private bool TrainerDetailExists(int id)
@@ -91,7 +107,11 @@ namespace Jupiter_api.Controllers
         [Route("GetTrainerModules")]
         public async Task<IEnumerable<object>> GetTrainerModule(int Trainerid)
         {
-            return await _context.TrainerModules.Where(b => b.EmpId == Trainerid).ToListAsync();
+            var TrainerNames = await _context.TrainerModules.Where(b => b.EmpId == Trainerid).ToListAsync();
+            Cache cache = new Cache(_cache);
+
+            var result = cache.ConfigSetting(TrainerNames);
+            return result;
         }
         
         // Get skills of a trainer

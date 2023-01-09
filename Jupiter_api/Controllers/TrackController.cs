@@ -3,6 +3,7 @@ using Jupiter_api.Models.Dto;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace Jupiter_api.Controllers
 {
@@ -11,11 +12,13 @@ namespace Jupiter_api.Controllers
     public class TrackController : ControllerBase
     {
 
+        private readonly IMemoryCache _cache;
         private readonly CoreDbContext _context;
 
-        public TrackController(CoreDbContext context)
+        public TrackController(CoreDbContext context, IMemoryCache cache)
         {
             _context = context;
+            _cache = cache;
         }
 
 
@@ -24,7 +27,12 @@ namespace Jupiter_api.Controllers
         [Route("GetAllTracks")]
         public async Task<ActionResult<IEnumerable<TrackDetail>>> GetAllTracks()
         {
-            return await _context.TrackDetails.ToListAsync();
+            List<TrackDetail> TracksDetails = await _context.TrackDetails.ToListAsync();
+            Cache cache = new Cache(_cache);
+
+            var result = cache.ConfigSetting(TracksDetails);
+            return result;
+
         }
 
 
@@ -64,6 +72,8 @@ namespace Jupiter_api.Controllers
                 TrackNo = trackno,
                 Modules = moduleList
             };
+
+
             return trackModule;
         }
 
@@ -88,7 +98,7 @@ namespace Jupiter_api.Controllers
                 return Conflict();
             }
 
-            return Ok();
+            return Ok(newTrack);
         }
 
 
